@@ -41,10 +41,13 @@ const ignoreDirs = new Set([
   ".pnpm",
 ]);
 
-const thisFile = path.resolve(__filename);
+const ignoreFiles = new Set([
+  path.resolve(__filename),
+  path.resolve("README.md"),
+]);
 
 function shouldSkip(filePath) {
-  if (path.resolve(filePath) === thisFile) return true;
+  if (ignoreFiles.has(path.resolve(filePath))) return true;
   const parts = filePath.split(path.sep);
   return parts.some((p) => ignoreDirs.has(p));
 }
