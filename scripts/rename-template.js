@@ -39,11 +39,16 @@ const ignoreDirs = new Set([
   "build",
   ".cache",
   ".pnpm",
+  "convex/_generated",
 ]);
 
 const ignoreFiles = new Set([
   path.resolve(__filename),
   path.resolve("README.md"),
+  path.resolve("pnpm-lock.yaml"),
+  path.resolve("package-lock.json"),
+  path.resolve("yarn.lock"),
+  path.resolve("bun.lockb"),
 ]);
 
 function shouldSkip(filePath) {
