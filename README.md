@@ -13,17 +13,22 @@
 - VS Code (Biome extension) or your preferred editor
 
 ## Getting Started
-1. Enable corepack and install dependencies
-   ```bash
-   corepack enable
-   pnpm install
-   ```
+1. Rename the template (see section below)
 2. Copy envs
    ```bash
    cp .env.example .env.local
    ```
    A postinstall script symlinks `.env.local` into each app/package.
-3. Run dev servers
+3. Enable corepack and install dependencies
+   ```bash
+   corepack enable
+   pnpm install
+   ```
+4. Set up convex
+   ```
+   pnpm dev:convex
+   ```
+5. Run dev servers
    ```bash
    pnpm dev
    ```

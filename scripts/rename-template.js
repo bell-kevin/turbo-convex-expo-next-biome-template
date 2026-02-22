@@ -31,6 +31,7 @@ const rewriteDeps = (obj) => {
   }
 };
 
+// Files to rewrite as JSON (preserve formatting)
 const packageFiles = [
   "package.json",
   "apps/web/package.json",
@@ -42,7 +43,7 @@ const packageFiles = [
 for (const rel of packageFiles) {
   const file = path.join(process.cwd(), rel);
   const json = JSON.parse(fs.readFileSync(file, "utf8"));
-  if (typeof json.name === "string" && json.name.startsWith("@template/")) {
+  if (typeof json.name === "string") {
     json.name = replaceScopeString(json.name);
   }
   rewriteDeps(json.dependencies);
@@ -50,6 +51,26 @@ for (const rel of packageFiles) {
   rewriteDeps(json.peerDependencies);
   fs.writeFileSync(file, `${JSON.stringify(json, null, 2)}\n`);
   console.log(`Updated scope in ${rel}`);
+}
+
+// Files to rewrite as raw text (scripts, docs, tsconfigs)
+const textFiles = [
+  "package.json",
+  "README.md",
+  "apps/web/tsconfig.json",
+  "apps/expo/tsconfig.json",
+  "convex/_generated/server.ts",
+];
+
+for (const rel of textFiles) {
+  const file = path.join(process.cwd(), rel);
+  if (!fs.existsSync(file)) continue;
+  const content = fs.readFileSync(file, "utf8");
+  const next = content.replace(/@template\//g, `@${scope}/`);
+  if (next !== content) {
+    fs.writeFileSync(file, next);
+    console.log(`Updated scope references in ${rel}`);
+  }
 }
 
 // Expo app.json rename
