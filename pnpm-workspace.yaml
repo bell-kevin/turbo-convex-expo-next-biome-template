@@ -2,7 +2,7 @@ packages:
   - apps/*
   - packages/*
   - tooling/*
-  - convex
+  - backend
 
 nodeLinker: hoisted
 

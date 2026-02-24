@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@convex/*": ["convex/*"],
+      "@backend/*": ["backend/*"],
       "@shared/*": ["packages/*"],
       "@web/*": ["apps/web/*"],
       "@expo/*": ["apps/expo/*"]

@@ -19,7 +19,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@template/convex": "workspace:*",
+    "@template/backend": "workspace:*",
     "expo": "~54.0.33",
     "expo-linking": "~8.0.11",
     "expo-router": "~6.0.23",

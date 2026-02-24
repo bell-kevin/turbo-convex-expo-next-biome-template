@@ -6,7 +6,7 @@
     "dev": "turbo run dev --parallel",
     "dev:expo": "pnpm --filter @template/expo dev",
     "dev:web": "pnpm --filter @template/web dev",
-    "dev:convex": "pnpm --filter @template/convex dev",
+    "dev:backend": "pnpm --filter @template/backend dev",
     "lint": "turbo run lint",
     "format": "turbo run format",
     "typecheck": "turbo run typecheck",
