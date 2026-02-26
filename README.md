@@ -26,7 +26,7 @@
    ```
 4. Set up convex
    ```
-   pnpm dev:convex
+   pnpm dev:backend
    ```
 5. Run dev servers
    ```bash
@@ -46,10 +46,10 @@ The Convex backend ships with stubbed generated files so typecheck passes out of
 ```bash
 pnpm --filter @template/convex convex codegen
 ```
-then start the Convex dev server with `pnpm dev:convex`.
+then start the Convex dev server with `pnpm dev:backend`.
 
 ## Useful scripts
 - `pnpm dev:expo`
 - `pnpm dev:web`
-- `pnpm dev:convex`
+- `pnpm dev:backend`
 - `pnpm lint` | `pnpm format` | `pnpm typecheck` | `pnpm build` | `pnpm test`
